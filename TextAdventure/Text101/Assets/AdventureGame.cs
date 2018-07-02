@@ -8,11 +8,15 @@ public class AdventureGame : MonoBehaviour {
 	[SerializeField] Text textComponent;
 	[SerializeField] State startingState;
 
+	string[] oddNumbers = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" };
+
 	State state;
 
 	// Use this for initialization
 	void Start () {
-		textComponent.text = ("Welcome to the future...");
+		state = startingState;
+		textComponent.text = state.GetStateStory();
+		Debug.Log(oddNumbers[3]);
 	}
 	
 	// Update is called once per frame
