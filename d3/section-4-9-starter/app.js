@@ -45,6 +45,8 @@ var a_scale         =   d3.scaleSqrt()
 
 // Create Axis
 const x_axis = d3.axisBottom(x_scale)
+    // .ticks(5)
+    // .tickValues([0, 150, 250, 600, 700])
 svg.append('g')
     .attr('class', 'x-axis')
     .attr(
@@ -52,9 +54,15 @@ svg.append('g')
         'translate(0,' + (chart_height-padding) + ')'
     )
     .call(x_axis)
-const y_axis = d3.axisRight(y_scale)
+const y_axis = d3.axisLeft(y_scale)
+    .ticks(5)
+    // .tickFormat((d) => d + '%')
 svg.append('g')
     .attr('class', 'y-axis')
+    .attr(
+        'transform',
+        'translate(' + padding + ',0)'
+    )
     .call(y_axis)
 // Create Circles
 svg.selectAll( 'circle' )
